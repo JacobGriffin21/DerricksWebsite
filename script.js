@@ -19,6 +19,10 @@ navLinks.querySelectorAll('a').forEach(link => {
 const phoneInput = document.getElementById('phone');
 
 phoneInput.addEventListener('input', (e) => {
+  if (e.inputType === 'deleteContentBackward' || e.inputType === 'deleteContentForward') {
+    return;
+  }
+
   const digits = e.target.value.replace(/\D/g, '').substring(0, 10);
   let formatted = '';
 
